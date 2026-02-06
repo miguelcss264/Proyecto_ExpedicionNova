@@ -1,11 +1,15 @@
 <?php
 
+// base para otras entidades estelares
 abstract class EntidadEstelar implements iInteractuable {
+    
+    // Atributos
     protected $id;
     protected $nombre;
     protected $planetaOrigen;
     protected $nivelEstabilidad;
 
+    // Constructor
     public function __construct($id, $nombre, $planetaOrigen, $nivelEstabilidad) {
         $this->id = $id;
         $this->nombre = $nombre;
@@ -36,7 +40,8 @@ abstract class EntidadEstelar implements iInteractuable {
     public function getNivelEstabilidad() {
         return $this->nivelEstabilidad;
     }
-
+    
+    // Nivel entre 1 y 10
     public function setNivelEstabilidad($nivelEstabilidad) {
         $this->nivelEstabilidad = max(1, min(10, intval($nivelEstabilidad)));
     }

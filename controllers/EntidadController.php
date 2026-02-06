@@ -1,13 +1,19 @@
 <?php
 
+// Controlador
 class EntidadController {
+
+    // acceso a los datos
     private $gestor;
 
     public function __construct(iGestor $gestor) {
         $this->gestor = $gestor;
     }
 
+    // MostraR lista de entidades 
     public function index() {
+
+        // filtros
         $tipo = $_GET['tipo'] ?? null;
         $estabilidadMin = $_GET['estabilidad_min'] ?? null;
         $estabilidadMax = $_GET['estabilidad_max'] ?? null;
@@ -20,10 +26,12 @@ class EntidadController {
         include "views/lista.php";
     }
 
+    //formulario para crear nueva entidad
     public function crear() {
         include "views/form.php";
     }
 
+    // Guardar entidad 
     public function guardar() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $tipo = $_POST['tipo'];

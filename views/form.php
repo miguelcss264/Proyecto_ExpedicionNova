@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <!-- El título cambia si se está creando o editando -->
     <title><?= isset($entidad) ? 'Editar' : 'Crear' ?> Entidad Estelar</title>
 </head>
 <body>

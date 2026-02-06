@@ -1,6 +1,9 @@
 <?php
 
+// Clase que hereda
 class MineralRaro extends EntidadEstelar {
+
+    // indica la dureza
     private $dureza;
 
     public function __construct($id, $nombre, $planetaOrigen, $nivelEstabilidad, $dureza) {
@@ -16,6 +19,7 @@ class MineralRaro extends EntidadEstelar {
         $this->dureza = $dureza;
     }
 
+    // Método devuelve reacción
     public function reaccionar() {
         return "El mineral '{$this->nombre}' refleja luz cristalina con dureza {$this->dureza}.";
     }

@@ -1,6 +1,8 @@
 <?php
 
 class Paginador {
+
+    // Atributos
     private $elementos;
     private $elementosPorPagina;
     private $paginaActual;
@@ -10,6 +12,8 @@ class Paginador {
         $this->elementos = $elementos;
         $this->elementosPorPagina = $elementosPorPagina;
         $this->paginaActual = max(1, intval($paginaActual));
+       
+        // calcula el total de páginas
         $this->totalPaginas = ceil(count($elementos) / $elementosPorPagina);
 
         if ($this->paginaActual > $this->totalPaginas && $this->totalPaginas > 0) {
@@ -17,6 +21,7 @@ class Paginador {
         }
     }
 
+    // Devuelve elementos de página actual
     public function obtenerElementos() {
         $offset = ($this->paginaActual - 1) * $this->elementosPorPagina;
         return array_slice($this->elementos, $offset, $this->elementosPorPagina);

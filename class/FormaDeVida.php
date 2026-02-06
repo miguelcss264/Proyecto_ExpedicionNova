@@ -15,7 +15,8 @@ class FormaDeVida extends EntidadEstelar {
     public function setDieta($dieta) {
         $this->dieta = $dieta;
     }
-
+    
+    // Método devuelve reacción
     public function reaccionar() {
         return "La forma de vida '{$this->nombre}' emite señales bioquímicas desde {$this->planetaOrigen}.";
     }
