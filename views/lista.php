@@ -33,7 +33,7 @@
     </div>
     
     <p>
-        Mostrando <?= count($paginator->getItems()) ?> de <?= $paginator->getTotalItems() ?> entidades estelares
+        Mostrando <?= count($paginador->obtenerElementos()) ?> de <?= $paginador->obtenerTotalElementos() ?> entidades estelares
     </p>
     <table border="1">
         <thead>
@@ -49,14 +49,15 @@
             </tr>
         </thead>
         <tbody>
-            <?php if (empty($paginator->getItems())): ?>
+            <?php if (empty($paginador->obtenerElementos())): ?>
                 <tr>
                     <td colspan="8">
                         No hay entidades estelares para mostrar. ¡Crea una nueva!
                     </td>
                 </tr>
             <?php else: ?>
-                <?php foreach ($paginator->getItems() as $entidad): ?>                    <tr>
+                <?php foreach ($paginador->obtenerElementos() as $entidad): ?>                   
+                    <tr>
                         <td><?= $entidad->getId() ?></td>
                         <td>
                             <?php
@@ -95,23 +96,23 @@
         </tbody>
     </table>    
 
-    <?php if ($paginator->getTotalPages() > 1): ?>
-        <div>            <?php if ($paginator->hasPreviousPage()): ?>
-                <a href="?accion=index&pagina=<?= $paginator->getCurrentPage() - 1 ?><?= isset($_GET['tipo']) ? '&tipo=' . $_GET['tipo'] : '' ?><?= isset($_GET['estabilidad_min']) ? '&estabilidad_min=' . $_GET['estabilidad_min'] : '' ?><?= isset($_GET['estabilidad_max']) ? '&estabilidad_max=' . $_GET['estabilidad_max'] : '' ?>">
+    <?php if ($paginador->obtenerTotalPaginas() > 1): ?>
+        <div>            <?php if ($paginador->tienePaginaAnterior()): ?>
+                <a href="?accion=index&pagina=<?= $paginador->obtenerPaginaActual() - 1 ?><?= isset($_GET['tipo']) ? '&tipo=' . $_GET['tipo'] : '' ?><?= isset($_GET['estabilidad_min']) ? '&estabilidad_min=' . $_GET['estabilidad_min'] : '' ?><?= isset($_GET['estabilidad_max']) ? '&estabilidad_max=' . $_GET['estabilidad_max'] : '' ?>">
                     Anterior
                 </a>
             <?php endif; ?>
             
-            <?php for ($i = 1; $i <= $paginator->getTotalPages(); $i++): ?>
-                <?php if ($i == $paginator->getCurrentPage()): ?>
+            <?php for ($i = 1; $i <= $paginador->obtenerTotalPaginas(); $i++): ?>
+                <?php if ($i == $paginador->obtenerPaginaActual()): ?>
                     <strong><?= $i ?></strong>
                 <?php else: ?>                    <a href="?accion=index&pagina=<?= $i ?><?= isset($_GET['tipo']) ? '&tipo=' . $_GET['tipo'] : '' ?><?= isset($_GET['estabilidad_min']) ? '&estabilidad_min=' . $_GET['estabilidad_min'] : '' ?><?= isset($_GET['estabilidad_max']) ? '&estabilidad_max=' . $_GET['estabilidad_max'] : '' ?>">
                         <?= $i ?>
                     </a>
                 <?php endif; ?>
             <?php endfor; ?>
-              <?php if ($paginator->hasNextPage()): ?>
-                <a href="?accion=index&pagina=<?= $paginator->getCurrentPage() + 1 ?><?= isset($_GET['tipo']) ? '&tipo=' . $_GET['tipo'] : '' ?><?= isset($_GET['estabilidad_min']) ? '&estabilidad_min=' . $_GET['estabilidad_min'] : '' ?><?= isset($_GET['estabilidad_max']) ? '&estabilidad_max=' . $_GET['estabilidad_max'] : '' ?>">
+              <?php if ($paginador->tienePaginaSiguiente()): ?>
+                <a href="?accion=index&pagina=<?= $paginador->obtenerPaginaActual() + 1 ?><?= isset($_GET['tipo']) ? '&tipo=' . $_GET['tipo'] : '' ?><?= isset($_GET['estabilidad_min']) ? '&estabilidad_min=' . $_GET['estabilidad_min'] : '' ?><?= isset($_GET['estabilidad_max']) ? '&estabilidad_max=' . $_GET['estabilidad_max'] : '' ?>">
                     Siguiente
                 </a>
             <?php endif; ?>

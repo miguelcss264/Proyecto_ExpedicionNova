@@ -15,7 +15,7 @@ class EntidadController {
 
         $entidades = $this->gestor->filtrar($tipo, $estabilidadMin, $estabilidadMax);
 
-        $paginator = new Paginator($entidades, 5, $pagina);
+        $paginador = new Paginador($entidades, 5, $pagina);
 
         include "views/lista.php";
     }
