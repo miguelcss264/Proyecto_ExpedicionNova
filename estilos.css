@@ -1,0 +1,281 @@
+:root {
+  --bg: #e9f1ff;
+  --surface: #ffffff;
+  --surface-strong: #f4f7ff;
+  --border: #d6def0;
+  --text: #0f172a;
+  --muted: #5f6b85;
+  --accent: #2563eb;
+  --accent-strong: #1e4fd8;
+  --shadow: 0 12px 30px rgba(15, 23, 42, 0.09);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at 20% 20%, #f7faff, #e1ebff 50%);
+  color: var(--text);
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.pagina {
+  max-width: 1400px;
+  margin: 40px auto 56px;
+  padding: 0 18px;
+}
+
+h1 {
+  margin: 0 0 20px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-strong);
+  text-decoration: underline;
+}
+
+.barra-herramientas {
+  margin: 0 0 16px;
+}
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
+}
+
+.boton.secundario {
+  background: #ffffff;
+  color: var(--accent);
+}
+
+.boton.peligro {
+  background: #fff2f2;
+  color: #b42318;
+  border-color: #f1a6a2;
+}
+
+.boton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.2);
+  text-decoration: none;
+}
+
+.boton.peligro:hover {
+  box-shadow: 0 10px 24px rgba(180, 35, 24, 0.12);
+}
+
+.tarjeta {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+.filtros {
+  background: var(--surface-strong);
+}
+
+.filtros form {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px 16px;
+  align-items: end;
+}
+
+.filtros label {
+  display: block;
+  font-weight: 700;
+  color: var(--muted);
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+.filtros input,
+.filtros select {
+  width: 100%;
+}
+
+.acciones-filtro {
+  display: flex;
+  gap: 10px;
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+input,
+select {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #ffffff;
+  color: inherit;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(11, 138, 95, 0.18);
+}
+
+small {
+  color: var(--muted);
+}
+
+.conteo {
+  margin: 18px 0 12px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.tabla-contenedor {
+  overflow-x: visible;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+}
+
+th,
+td {
+  padding: 10px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  background: #e8f0ff;
+  color: #0d1b38;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+td {
+  word-break: normal;
+}
+
+/* Anchuras cómodas por columna (desktop) */
+th:nth-child(1),
+td:nth-child(1) { width: 110px; }
+
+th:nth-child(2),
+td:nth-child(2) { width: 120px; }
+
+th:nth-child(3),
+td:nth-child(3) { width: 140px; }
+
+th:nth-child(4),
+td:nth-child(4) { width: 160px; }
+
+th:nth-child(5),
+td:nth-child(5) { width: 140px; }
+
+th:nth-child(6),
+td:nth-child(6) { width: 180px; }
+
+th:nth-child(7),
+td:nth-child(7) { width: 260px; }
+
+tr:nth-child(even) td {
+  background: #f8fafc;
+}
+
+tr:hover td {
+  background: #f1f5f9;
+}
+
+.acciones {
+  white-space: nowrap;
+  min-width: 240px;
+}
+
+.acciones .boton {
+  margin-right: 8px;
+}
+
+.acciones .boton:last-child {
+  margin-right: 0;
+}
+
+.estado-vacio {
+  text-align: center;
+  padding: 24px 0;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.paginador {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.paginador a,
+.paginador strong {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  font-weight: 700;
+}
+
+.paginador strong {
+  border-color: var(--accent);
+  background: #e8f0ff;
+  color: var(--accent-strong);
+}
+
+.tarjeta-formulario form p {
+  margin: 0 0 14px;
+}
+
+.tarjeta-formulario label {
+  display: block;
+  font-weight: 700;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.acciones-formulario {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.texto-tenue {
+  color: var(--muted);
+}
