@@ -106,7 +106,8 @@
             <?php for ($i = 1; $i <= $paginador->obtenerTotalPaginas(); $i++): ?>
                 <?php if ($i == $paginador->obtenerPaginaActual()): ?>
                     <strong><?= $i ?></strong>
-                <?php else: ?>                    <a href="?accion=index&pagina=<?= $i ?><?= isset($_GET['tipo']) ? '&tipo=' . $_GET['tipo'] : '' ?><?= isset($_GET['estabilidad_min']) ? '&estabilidad_min=' . $_GET['estabilidad_min'] : '' ?><?= isset($_GET['estabilidad_max']) ? '&estabilidad_max=' . $_GET['estabilidad_max'] : '' ?>">
+                <?php else: ?>                    
+                    <a href="?accion=index&pagina=<?= $i ?><?= isset($_GET['tipo']) ? '&tipo=' . $_GET['tipo'] : '' ?><?= isset($_GET['estabilidad_min']) ? '&estabilidad_min=' . $_GET['estabilidad_min'] : '' ?><?= isset($_GET['estabilidad_max']) ? '&estabilidad_max=' . $_GET['estabilidad_max'] : '' ?>">
                         <?= $i ?>
                     </a>
                 <?php endif; ?>
